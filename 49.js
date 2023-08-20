@@ -33,3 +33,17 @@ var groupAnagrams = function(strs) {
     }
     return groups
 };
+
+var groupAnagrams = function(strs) {
+    let obj = {}
+
+    for(word of strs){
+        let sort_word = word.split('').sort().join('')
+        if(obj[sort_word] === undefined){
+            obj[sort_word] = [word]
+        } else {
+            obj[sort_word].push(word)
+        }
+    }
+    return Object.values(obj)
+};
