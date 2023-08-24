@@ -6,17 +6,23 @@ class Solution(object):
         """
 
         output = []
-
+        nums.sort()
         for i,num in enumerate(nums):
-            target = 0 - num
+            if i > 0 and num == nums[i -  1]:
+                continue
+
             l = i + 1
             r = len(nums) - 1
-            while l < len(nums) - 2:
-                if nums[l] + nums[r] > target:
+            while l < r:
+                tot = num  + nums[l] + nums[r]
+                if tot > 0:
                     r -= 1
-                elif nums[l] + nums[r] < target:
+                elif tot < 0:
                     l += 1
-                elif nums[l] + nums[r] == target:
+                else:
                     output.append([num,nums[l],nums[r]])
+                    l += 1
+                    while nums[l] == nums[l-1] and l < r:
+                        l+=1
 
         return output
