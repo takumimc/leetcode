@@ -18,7 +18,6 @@ class Solution(object):
 
         second = slow.next
         slow.next = None
-        first = slow
 
         rev = None
 
@@ -28,7 +27,7 @@ class Solution(object):
             rev = second #3 4
             second = tmp # 4 None
 
-        cur = first
+        cur = head
         cur2 = rev
         while cur2 != None:
             tmp1 = cur.next
