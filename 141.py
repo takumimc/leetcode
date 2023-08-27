@@ -18,3 +18,17 @@ class Solution(object):
             visited.append(cur)
             cur = cur.next
         return False
+
+class Solution(object):
+    def hasCycle(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        cur = head
+        while cur != None:
+            if cur.val == 'visited':
+                return True
+            cur.val = 'visited'
+            cur = cur.next
+        return False
