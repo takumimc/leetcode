@@ -32,3 +32,18 @@ class Solution(object):
             cur.val = 'visited'
             cur = cur.next
         return False
+
+class Solution(object):
+    def hasCycle(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        fast = head
+        slow = head
+        while fast != None and fast.next != None:
+            slow = slow.next
+            fast =fast.next.next
+            if fast == slow:
+                return True
+        return False
