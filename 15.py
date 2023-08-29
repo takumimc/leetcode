@@ -26,3 +26,31 @@ class Solution(object):
                         l+=1
 
         return output
+
+
+class Solution(object):
+    def threeSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        output = []
+        nums.sort()
+        prev = None
+        for i in nums:
+            if i == prev:
+                continue
+            prev = i
+            l = i + 1
+            r = len(nums) - 1
+            while l < r:
+                tot = i + nums[l] + nums[r]
+                if tot > 0:
+                    r -= 1
+                elif tot < 0:
+                    l += 1
+                else:
+                    output.append([i,nums[l],nums[r]])
+                    l += 1
+
+        return output
