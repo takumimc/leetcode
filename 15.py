@@ -37,20 +37,27 @@ class Solution(object):
         output = []
         nums.sort()
         prev = None
-        for i in nums:
-            if i == prev:
+        prevL = None
+        for i in range(len(nums) - 1):
+            prevL = None
+            if nums[i] == prev:
                 continue
-            prev = i
+            prev = nums[i]
             l = i + 1
             r = len(nums) - 1
             while l < r:
-                tot = i + nums[l] + nums[r]
+                if nums[l] == prevL:
+                    l+= 1
+                    continue
+                tot = nums[i] + nums[l] + nums[r]
                 if tot > 0:
                     r -= 1
                 elif tot < 0:
                     l += 1
                 else:
-                    output.append([i,nums[l],nums[r]])
+                    output.append([nums[i],nums[l],nums[r]])
+                    prevL  = nums[l]
                     l += 1
+
 
         return output
