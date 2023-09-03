@@ -36,3 +36,21 @@ class Solution(object):
                 longest = max(l,longest)
 
         return longest
+
+
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+
+        count = {}
+        for num in nums:
+            count[num] = num
+        longest = 0
+        for num in nums:
+            if count.get(num - 1) == None:
+                counter = 0
+                while count.get(num + counter) != None :
+                    counter += 1
+
+                longest = max(counter,longest)
+
+        return longest
