@@ -21,3 +21,6 @@ x = Solution()
 s = "AAAB"
 k = 0
 print(x.characterReplacement(s,k))
+
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
