@@ -1,7 +1,8 @@
 class KthLargest:
 
     def __init__(self, k: int, nums: List[int]):
-        self.values = nums.sort()
+        self.values = nums
+        self.values.sort()
         self.k = k
 
     def add(self, val: int) -> int:
